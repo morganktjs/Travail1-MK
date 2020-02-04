@@ -7,6 +7,10 @@ const int maxCartes = 52;
 class Donnees
 {
 	public:
-
+	Carte paquetDeCarte[52];
+	Joueur Joueur1;
+	Joueur Joueur2;
+	Donnees();
+	void InitialiserCartes();
 };
 
