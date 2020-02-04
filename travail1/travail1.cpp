@@ -32,4 +32,12 @@ void Jouer()
 
 void InitialiserJoueurs()
 {
+	string nom = "";
+
+	cout << "\nQuel est le nom du premier joueur ?";
+	cin >> nom;
+	leJeu.Joueur1.SetNom(nom);
+	cout << "\nQuel est le nom du deuxieme joueur ?";
+	cin >> nom;
+	leJeu.Joueur2.SetNom(nom);
 }

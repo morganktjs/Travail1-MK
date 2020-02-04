@@ -44,3 +44,18 @@ void Joueur::AugmenterVictoire()
 {
 	nombreVictoire++;
 }
+
+string Joueur::GetNom()
+{
+	return nom;
+}
+
+int Joueur::GetNombreVictoire()
+{
+	return nombreVictoire;
+}
+
+int Joueur::GetNombreDefaite()
+{
+	return nombreDefaite;
+}

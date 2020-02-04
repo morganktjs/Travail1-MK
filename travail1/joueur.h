@@ -17,6 +17,9 @@ private:
 public:
 	Joueur();
 	void SetNom(string aNom);
+	string GetNom();
+	int GetNombreVictoire();
+	int GetNombreDefaite();
 	void AjouterUneCarteDansLaMain(Carte* aCarte);
 	void EnleverLesCartesDeLaMain();
 	void AugmenterVictoire();
