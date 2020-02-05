@@ -11,6 +11,6 @@ class Donnees
 	Joueur Joueur1;
 	Joueur Joueur2;
 	Donnees();
-	const void InitialiserCartes();
+	void InitialiserCartes();
 };
 
