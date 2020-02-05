@@ -16,7 +16,7 @@ Joueur::Joueur()
 	}
 }
 
-const void Joueur::AjouterUneCarteDansLaMain(Carte* aCarte)
+void Joueur::AjouterUneCarteDansLaMain(Carte* aCarte)
 {
 
 	int i = -1;
@@ -37,7 +37,7 @@ const void Joueur::AjouterUneCarteDansLaMain(Carte* aCarte)
 
 }
 
-const void Joueur::EnleverLesCartesDeLaMain()
+void Joueur::EnleverLesCartesDeLaMain()
 {
 	for (int i = 0; i < maxCartesAJouer; i++)
 	{
@@ -45,12 +45,12 @@ const void Joueur::EnleverLesCartesDeLaMain()
 	}
 }
 
-const void Joueur::AugmenterDefaite()
+void Joueur::AugmenterDefaite()
 {
 	nombreDefaite++;
 }
 
-const void Joueur::AugmenterVictoire()
+void Joueur::AugmenterVictoire()
 {
 	nombreVictoire++;
 }
@@ -60,17 +60,17 @@ string Joueur::GetNom()
 	return nom;
 }
 
-int Joueur::GetNombreVictoire()
+int Joueur::GetNombreVictoire() const
 {
 	return nombreVictoire;
 }
 
-int Joueur::GetNombreDefaite()
+int Joueur::GetNombreDefaite() const
 {
 	return nombreDefaite;
 }
 
-Carte * Joueur::GetCarte(int indiceTableau)
+Carte * Joueur::GetCarte(int indiceTableau) const
 {
 	return mainDuJoueur[indiceTableau];
 }
