@@ -1,6 +1,6 @@
 #include "joueur.h"
 
-void Joueur::SetNom(string aNom)
+const void Joueur::SetNom(string aNom)
 {
 	nom = aNom;
 }
@@ -16,7 +16,7 @@ Joueur::Joueur()
 	}
 }
 
-void Joueur::AjouterUneCarteDansLaMain(Carte* aCarte)
+const void Joueur::AjouterUneCarteDansLaMain(Carte* aCarte)
 {
 
 	int i = -1;
@@ -37,7 +37,7 @@ void Joueur::AjouterUneCarteDansLaMain(Carte* aCarte)
 
 }
 
-void Joueur::EnleverLesCartesDeLaMain()
+const void Joueur::EnleverLesCartesDeLaMain()
 {
 	for (int i = 0; i < maxCartesAJouer; i++)
 	{
@@ -45,12 +45,12 @@ void Joueur::EnleverLesCartesDeLaMain()
 	}
 }
 
-void Joueur::AugmenterDefaite()
+const void Joueur::AugmenterDefaite()
 {
 	nombreDefaite++;
 }
 
-void Joueur::AugmenterVictoire()
+const void Joueur::AugmenterVictoire()
 {
 	nombreVictoire++;
 }

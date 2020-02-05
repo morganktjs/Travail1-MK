@@ -30,8 +30,7 @@ int main()
 		ClrScr();
 		Jouer();
 		cout << "\nTermine (n/o) ? ";
-		cin >> fini;
-		
+		cin >> fini;	
 	}
 	ClrScr();
 	AfficherMessageDeFinDePartie();
@@ -90,7 +89,7 @@ void MelangerLePaquet()
 	int i, j;
 	Carte tempo;
 
-	for (int cpt = 0; cpt < 4; cpt++)
+	for (int cpt = 0; cpt < 50; cpt++)
 	{
 		for (i = 0; i < nombreDeCarteDansLePaquet - 1; i++)
 		{
@@ -130,6 +129,10 @@ void AugmenterVictoireEtDefaite(int aResultatJoueur1, int aResultatJoueur2)
 		leJeu.Joueur2.AugmenterDefaite();
 		cout << "Bien joue " << leJeu.Joueur1.GetNom() << " tu gagnes cette partie";
 	}
+	else if (aResultatJoueur1 == aResultatJoueur2)
+	{
+		cout << "Bien joue au deux joueurs, il y a egalite";
+	}
 	else
 	{
 		leJeu.Joueur2.AugmenterVictoire();
@@ -147,6 +150,10 @@ void AfficherMessageDeFinDePartie()
 	{
 		cout << "Bien joue " << leJeu.Joueur1.GetNom() << " tu gagnes le jeu";
 	}
+	else if (leJeu.Joueur1.GetNombreVictoire() == leJeu.Joueur2.GetNombreVictoire())
+	{
+		cout << "Bien joue au deux joueurs, il y a egalite";
+	}
 	else
 	{
 		cout << "Bien joue " << leJeu.Joueur2.GetNom() << " tu gagnes le jeu";
@@ -158,7 +165,7 @@ int Afficher(Joueur aJoueur)
 	int i = 0;
 	int resultat = 0;
 	cout << aJoueur.GetNom() << "\n";
-	while (aJoueur.GetCarte(i) != NULL)
+	while (aJoueur.GetCarte(i) != NULL && i < maxCartesAJouer)
 	{
 		resultat += aJoueur.GetCarte(i)->GetValeur();
 		cout << "- " << aJoueur.GetCarte(i)->GetValeur() << " " << aJoueur.GetCarte(i)->GetAtout() << "\n";

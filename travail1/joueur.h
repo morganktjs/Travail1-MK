@@ -16,14 +16,14 @@ private:
 
 public:
 	Joueur();
-	void SetNom(string aNom);
+	const void SetNom(string aNom);
 	string GetNom();
 	int GetNombreVictoire();
 	int GetNombreDefaite();
 	Carte * GetCarte(int indiceTableau);
-	void AjouterUneCarteDansLaMain(Carte* aCarte);
-	void EnleverLesCartesDeLaMain();
-	void AugmenterVictoire();
-	void AugmenterDefaite();
+	const void AjouterUneCarteDansLaMain(Carte* aCarte);
+	const void EnleverLesCartesDeLaMain();
+	const void AugmenterVictoire();
+	const void AugmenterDefaite();
 };
 #endif

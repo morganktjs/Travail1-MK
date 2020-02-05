@@ -7,7 +7,7 @@ Donnees::Donnees()
 }
 
 
-void Donnees::InitialiserCartes()
+const void Donnees::InitialiserCartes()
 {
 	int cpt = 0;
 
