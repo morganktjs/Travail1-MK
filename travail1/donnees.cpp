@@ -13,21 +13,31 @@ void Donnees::InitialiserCartes()
 
 	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < 13; j++)
+		for (int j = 1; j < 14; j++)
 		{
 
 			Carte newCarte;
-			switch (i)
+			if (i == 0)
 			{
-			case 0:
 				newCarte.InitialiserCarte(j, "coeur");
-			case 1:
-				newCarte.InitialiserCarte(j, "carreau");
-			case 2:
-				newCarte.InitialiserCarte(j, "pique");
-			case 3:
-				newCarte.InitialiserCarte(j, "tr�fle");
+				paquetDeCarte[cpt] = newCarte;
 			}
+			else if (i == 1)
+			{
+				newCarte.InitialiserCarte(j, "carreau");
+				paquetDeCarte[cpt] = newCarte;
+			}
+			else if (i == 2)
+			{
+				newCarte.InitialiserCarte(j, "pique");
+				paquetDeCarte[cpt] = newCarte;
+			}
+			else if (i == 3)
+			{
+				newCarte.InitialiserCarte(j, "trefle");
+				paquetDeCarte[cpt] = newCarte;
+			}
+			cpt++;
 		}
 	}
 }

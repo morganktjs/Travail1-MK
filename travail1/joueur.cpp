@@ -18,13 +18,23 @@ Joueur::Joueur()
 
 void Joueur::AjouterUneCarteDansLaMain(Carte* aCarte)
 {
-	for (int i = 0; i < maxCartesAJouer; i++)
+
+	int i = -1;
+	/*for (int i = 0; i < maxCartesAJouer; i++)
 	{
 		if (mainDuJoueur[i] == NULL)
 		{
 			mainDuJoueur[i] = aCarte;
 		}
-	}
+	}*/
+
+	do
+	{
+		i++;
+	} while (mainDuJoueur[i] != NULL);
+	mainDuJoueur[i] = aCarte;
+
+
 }
 
 void Joueur::EnleverLesCartesDeLaMain()
@@ -58,4 +68,9 @@ int Joueur::GetNombreVictoire()
 int Joueur::GetNombreDefaite()
 {
 	return nombreDefaite;
+}
+
+Carte * Joueur::GetCarte(int indiceTableau)
+{
+	return mainDuJoueur[indiceTableau];
 }

@@ -20,6 +20,7 @@ public:
 	string GetNom();
 	int GetNombreVictoire();
 	int GetNombreDefaite();
+	Carte * GetCarte(int indiceTableau);
 	void AjouterUneCarteDansLaMain(Carte* aCarte);
 	void EnleverLesCartesDeLaMain();
 	void AugmenterVictoire();
