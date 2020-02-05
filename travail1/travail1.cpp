@@ -17,6 +17,8 @@ void DistribuerLesCartes(int aNombreDeCarteADistribuer);
 void Jouer();
 int DemanderNombreDeCarteADistribuer();
 void MelangerLePaquet();
+void AugmenterVictoireEtDefaite(int aResultatJoueur1, int aResultatJoueur2);
+void AfficherMessageDeFinDePartie();
 
 int main() 
 {
@@ -25,10 +27,14 @@ int main()
 	InitialiserJoueurs();
 	while (fini=='n' || fini=='N')
 	{
+		ClrScr();
 		Jouer();
 		cout << "\nTermine (n/o) ? ";
-		cin >> fini;		
+		cin >> fini;
+		
 	}
+	ClrScr();
+	AfficherMessageDeFinDePartie();
 }
 
 void Jouer() 
@@ -41,20 +47,9 @@ void Jouer()
 	DistribuerLesCartes(nombreDeCarteADistribuer);
 	resultatJoueur1 = Afficher(leJeu.Joueur1);
 	resultatJoueur2 = Afficher(leJeu.Joueur2);
-	if (resultatJoueur1 > resultatJoueur2)
-	{
-		leJeu.Joueur1.AugmenterVictoire();
-		leJeu.Joueur2.AugmenterDefaite();
-		cout << "Bien joue " << leJeu.Joueur1.GetNom() << " tu gagnes cette partie";
-	}
-	else
-	{
-		leJeu.Joueur2.AugmenterVictoire();
-		leJeu.Joueur1.AugmenterDefaite();
-		cout << "Bien joue " << leJeu.Joueur2.GetNom() << " tu gagnes cette partie";
-	}
-
-
+	AugmenterVictoireEtDefaite(resultatJoueur1, resultatJoueur2);
+	leJeu.Joueur1.EnleverLesCartesDeLaMain();
+	leJeu.Joueur2.EnleverLesCartesDeLaMain();
 }
 
 void InitialiserJoueurs()
@@ -125,6 +120,37 @@ void DistribuerLesCartes(int aNombreDeCarteADistribuer)
 		}
 	}
 
+}
+
+void AugmenterVictoireEtDefaite(int aResultatJoueur1, int aResultatJoueur2)
+{
+	if (aResultatJoueur1 > aResultatJoueur2)
+	{
+		leJeu.Joueur1.AugmenterVictoire();
+		leJeu.Joueur2.AugmenterDefaite();
+		cout << "Bien joue " << leJeu.Joueur1.GetNom() << " tu gagnes cette partie";
+	}
+	else
+	{
+		leJeu.Joueur2.AugmenterVictoire();
+		leJeu.Joueur1.AugmenterDefaite();
+		cout << "Bien joue " << leJeu.Joueur2.GetNom() << " tu gagnes cette partie";
+	}
+}
+
+void AfficherMessageDeFinDePartie()
+{
+	cout << "Voici les stats des joueurs : \n";
+	cout << leJeu.Joueur1.GetNom() << " :\n" << "- " << leJeu.Joueur1.GetNombreVictoire() << " victoire(s)\n" << "- " << leJeu.Joueur1.GetNombreDefaite() << " defaite(s)\n\n";
+	cout << leJeu.Joueur2.GetNom() << " :\n" << "- " << leJeu.Joueur2.GetNombreVictoire() << " victoire(s)\n" << "- " << leJeu.Joueur2.GetNombreDefaite() << " defaite(s)\n\n";
+	if (leJeu.Joueur1.GetNombreVictoire() > leJeu.Joueur2.GetNombreVictoire())
+	{
+		cout << "Bien joue " << leJeu.Joueur1.GetNom() << " tu gagnes le jeu";
+	}
+	else
+	{
+		cout << "Bien joue " << leJeu.Joueur2.GetNom() << " tu gagnes le jeu";
+	}
 }
 
 int Afficher(Joueur aJoueur)
